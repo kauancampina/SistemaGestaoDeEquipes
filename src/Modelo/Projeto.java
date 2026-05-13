@@ -1,12 +1,47 @@
 package Modelo;
 
-import java.time.LocalDateTime;
-
 public class Projeto {
 
-    public String nomeDoProjeto;
-    public String descricao;
-    public LocalDateTime dataDeInicio;
-    public LocalDateTime previsaoDeTermino;
-    public String status;
+    private int id;
+    private String nome;
+    private String descricao;
+    private String dataInicio;
+    private String dataFim;
+    private String status;
+
+    private Usuario gerente;
+
+    public Projeto(int id,
+                   String nome,
+                   String descricao,
+                   String dataInicio,
+                   String dataFim,
+                   String status,
+                   Usuario gerente) {
+
+        this.id = id;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.dataInicio = dataInicio;
+        this.dataFim = dataFim;
+        this.status = status;
+        this.gerente = gerente;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public Usuario getGerente() {
+        return gerente;
+    }
+
+    @Override
+    public String toString() {
+
+        return "\nProjeto: " + nome +
+                "\nDescrição: " + descricao +
+                "\nStatus: " + status +
+                "\nGerente: " + gerente.getNomeCompleto();
+    }
 }
