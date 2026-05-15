@@ -33,3 +33,4 @@ public class Equipe {
                 " | Quantidade de membros: " + membros.size();
     }
 }
+aa
