@@ -2,7 +2,6 @@ package Modelo;
 
 public class Usuario {
 
-    private int id;
     private String nomeCompleto;
     private String cpf;
     private String email;
@@ -11,16 +10,9 @@ public class Usuario {
     private String senha;
     private String perfil;
 
-    public Usuario(int id,
-                   String nomeCompleto,
-                   String cpf,
-                   String email,
-                   String cargo,
-                   String login,
-                   String senha,
-                   String perfil) {
+    public Usuario(String nomeCompleto, String cpf, String email,
+                   String cargo, String login, String senha, String perfil) {
 
-        this.id = id;
         this.nomeCompleto = nomeCompleto;
         this.cpf = cpf;
         this.email = email;
@@ -28,10 +20,6 @@ public class Usuario {
         this.login = login;
         this.senha = senha;
         this.perfil = perfil;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public String getNomeCompleto() {
@@ -64,12 +52,10 @@ public class Usuario {
 
     @Override
     public String toString() {
-
-        return "\nID: " + id +
-                "\nNome: " + nomeCompleto +
-                "\nCPF: " + cpf +
-                "\nEmail: " + email +
-                "\nCargo: " + cargo +
-                "\nPerfil: " + perfil;
+        return "Nome: " + nomeCompleto +
+                " | CPF: " + cpf +
+                " | Email: " + email +
+                " | Cargo: " + cargo +
+                " | Perfil: " + perfil;
     }
 }

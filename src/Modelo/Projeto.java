@@ -2,28 +2,20 @@ package Modelo;
 
 public class Projeto {
 
-    private int id;
     private String nome;
     private String descricao;
     private String dataInicio;
-    private String dataFim;
+    private String dataTermino;
     private String status;
-
     private Usuario gerente;
 
-    public Projeto(int id,
-                   String nome,
-                   String descricao,
-                   String dataInicio,
-                   String dataFim,
-                   String status,
-                   Usuario gerente) {
+    public Projeto(String nome, String descricao, String dataInicio,
+                   String dataTermino, String status, Usuario gerente) {
 
-        this.id = id;
         this.nome = nome;
         this.descricao = descricao;
         this.dataInicio = dataInicio;
-        this.dataFim = dataFim;
+        this.dataTermino = dataTermino;
         this.status = status;
         this.gerente = gerente;
     }
@@ -32,16 +24,30 @@ public class Projeto {
         return nome;
     }
 
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public String getDataInicio() {
+        return dataInicio;
+    }
+
+    public String getDataTermino() {
+        return dataTermino;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
     public Usuario getGerente() {
         return gerente;
     }
 
     @Override
     public String toString() {
-
-        return "\nProjeto: " + nome +
-                "\nDescrição: " + descricao +
-                "\nStatus: " + status +
-                "\nGerente: " + gerente.getNomeCompleto();
+        return "Projeto: " + nome +
+                " | Status: " + status +
+                " | Gerente: " + gerente.getNomeCompleto();
     }
 }
