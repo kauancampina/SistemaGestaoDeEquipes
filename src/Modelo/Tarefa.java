@@ -31,5 +31,3 @@ public class Tarefa {
                 " | Responsável: " + responsavel.getNomeCompleto();
     }
 }
-aa
-aa

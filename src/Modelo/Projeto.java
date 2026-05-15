@@ -51,5 +51,3 @@ public class Projeto {
                 " | Gerente: " + gerente.getNomeCompleto();
     }
 }
-aa
-aa
