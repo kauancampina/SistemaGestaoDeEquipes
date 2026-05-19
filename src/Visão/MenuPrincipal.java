@@ -1,6 +1,6 @@
 package Visao;
 
-            System.out.print("Escolha: ");
+import Modelo.Usuario;System.out.print("Escolha: ");
 opcao = scanner.nextInt();
             scanner.nextLine();
 
