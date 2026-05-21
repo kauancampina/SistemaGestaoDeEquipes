@@ -6,6 +6,7 @@ out/
 
 .idea/
 out/
+dados/
 *.class
 *.iml
 
@@ -33,4 +34,3 @@ bin/
 
 ### Mac OS ###
 .DS_Store
-
