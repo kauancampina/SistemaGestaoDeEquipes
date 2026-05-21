@@ -33,9 +33,10 @@ public class TelaUsuario {
         while (!controleUsuario.possuiUsuariosCadastrados()) {
             try {
                 System.out.println("===== PRIMEIRO ACESSO =====");
-                System.out.println("Para iniciar o sistema, e necessario realizar um registro no sistema.");
-                System.out.println("Observacao: apenas administradores podem mexer nas configuracoes do projeto.");
-                System.out.println("Crie abaixo o primeiro administrador do sistema.");
+                System.out.println("Para iniciar o sistema, crie o primeiro administrador.");
+                System.out.println();
+                System.out.println("Apenas administradores podem alterar as configurações do sistema.");
+                System.out.println();
 
                 Usuario administrador = lerAdministradorInicial();
                 controleUsuario.cadastrarPrimeiroAdministrador(administrador);
