@@ -25,6 +25,10 @@ public class ControleUsuario {
         servicoUsuario.cadastrarUsuario(usuario);
     }
 
+    public void cadastrarPrimeiroAdministrador(Usuario usuario) {
+        servicoUsuario.cadastrarPrimeiroAdministrador(usuario);
+    }
+
     public void editarUsuario(Usuario usuario) {
         permissaoService.exigirAdministrador();
         servicoUsuario.editarUsuario(usuario);
@@ -67,5 +71,9 @@ public class ControleUsuario {
 
     public Usuario getUsuarioLogado() {
         return sessao.getUsuarioLogado();
+    }
+
+    public boolean possuiUsuariosCadastrados() {
+        return servicoUsuario.possuiUsuariosCadastrados();
     }
 }

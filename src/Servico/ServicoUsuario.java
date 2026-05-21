@@ -24,6 +24,14 @@ public class ServicoUsuario {
         return repository.salvar(usuario);
     }
 
+    public Usuario cadastrarPrimeiroAdministrador(Usuario usuario) {
+        if (!repository.listarTodos().isEmpty()) {
+            throw new IllegalStateException("O administrador inicial ja foi cadastrado.");
+        }
+        usuario.setPerfil(PerfilUsuario.ADMINISTRADOR);
+        return cadastrarUsuario(usuario);
+    }
+
     public void editarUsuario(Usuario usuario) {
         validarUsuario(usuario, false);
         Validacoes.idPositivo(usuario.getId(), "usuario");
@@ -62,18 +70,8 @@ public class ServicoUsuario {
                 .orElseThrow(() -> new SecurityException("Login ou senha invalidos."));
     }
 
-    public void garantirAdministradorInicial() {
-        if (repository.listarTodos().isEmpty()) {
-            repository.salvar(new Usuario(
-                    "Administrador do Sistema",
-                    "52998224725",
-                    "admin@sistema.com",
-                    "Administrador",
-                    "admin",
-                    "admin123",
-                    PerfilUsuario.ADMINISTRADOR
-            ));
-        }
+    public boolean possuiUsuariosCadastrados() {
+        return !repository.listarTodos().isEmpty();
     }
 
     private void validarUsuario(Usuario usuario, boolean validarSenha) {

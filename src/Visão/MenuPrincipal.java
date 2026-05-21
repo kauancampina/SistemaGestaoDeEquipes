@@ -44,7 +44,6 @@ public class MenuPrincipal {
         PermissaoService permissaoService = new PermissaoService(sessao);
 
         ServicoUsuario servicoUsuario = new ServicoUsuario(usuarioRepository);
-        servicoUsuario.garantirAdministradorInicial();
         ServicoProjeto servicoProjeto = new ServicoProjeto(projetoRepository);
         ServicoEquipe servicoEquipe = new ServicoEquipe(equipeRepository);
         ServicoTarefa servicoTarefa = new ServicoTarefa(tarefaRepository, projetoRepository);
@@ -63,6 +62,9 @@ public class MenuPrincipal {
     }
 
     public void iniciarSistema() {
+        if (!controleUsuario.possuiUsuariosCadastrados()) {
+            telaUsuario.cadastrarPrimeiroAdministrador();
+        }
         realizarLogin();
         int opcao;
         do {

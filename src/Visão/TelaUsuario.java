@@ -29,6 +29,23 @@ public class TelaUsuario {
         }
     }
 
+    public void cadastrarPrimeiroAdministrador() {
+        while (!controleUsuario.possuiUsuariosCadastrados()) {
+            try {
+                System.out.println("===== PRIMEIRO ACESSO =====");
+                System.out.println("Para iniciar o sistema, e necessario realizar um registro no sistema.");
+                System.out.println("Observacao: apenas administradores podem mexer nas configuracoes do projeto.");
+                System.out.println("Crie abaixo o primeiro administrador do sistema.");
+
+                Usuario administrador = lerAdministradorInicial();
+                controleUsuario.cadastrarPrimeiroAdministrador(administrador);
+                System.out.println("Administrador cadastrado com sucesso. Agora realize o login.");
+            } catch (RuntimeException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+    }
+
     public void editarUsuario() {
         try {
             int id = console.lerInteiro("ID do usuario: ");
@@ -94,5 +111,15 @@ public class TelaUsuario {
         String senha = lerSenha ? console.lerTexto("Senha: ") : "";
         PerfilUsuario perfil = console.lerEnum("Perfil: ", PerfilUsuario.class);
         return new Usuario(id, nome, cpf, email, cargo, login, senha, perfil);
+    }
+
+    private Usuario lerAdministradorInicial() {
+        String nome = console.lerTexto("Nome: ");
+        String cpf = console.lerTexto("CPF (11 digitos, sem pontos, tracos, acentos ou pontuacoes): ");
+        String email = console.lerTexto("Email: ");
+        String cargo = console.lerTexto("Cargo: ");
+        String login = console.lerTexto("Login: ");
+        String senha = console.lerTexto("Senha: ");
+        return new Usuario(nome, cpf, email, cargo, login, senha, PerfilUsuario.ADMINISTRADOR);
     }
 }
