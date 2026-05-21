@@ -1,9 +1,8 @@
-import Visao.MenuPrincipal;
+import Visao.Swing.TelaLogin;
 
 public class Main1 {
 
     public static void main(String[] args) {
-        MenuPrincipal menu = new MenuPrincipal();
-        menu.iniciarSistema();
+        TelaLogin.abrir();
     }
 }
