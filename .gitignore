@@ -1,6 +1,7 @@
 ### IntelliJ IDEA ###
 out/
 target/
+exportToHTML/
 !**/src/main/**/out/
 !**/src/test/**/out/
 .kotlin
@@ -8,6 +9,7 @@ target/
 .idea/
 out/
 target/
+exportToHTML/
 dados/
 *.class
 *.iml
